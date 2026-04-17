@@ -53,11 +53,7 @@ Build command:
 npm run build
 ```
 
-Output directory:
-
-```bash
-.next
-```
+Note for Vercel: keep **Output Directory empty** for Next.js projects.
 
 ## Country-aware API behavior
 
