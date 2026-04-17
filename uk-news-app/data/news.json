@@ -1,0 +1,232 @@
+[
+  {
+    "id": "1",
+    "slug": "uk-election-debate-cost-of-living",
+    "title": "Election Debate Focuses on Cost of Living",
+    "excerpt": "Party leaders outlined competing plans on wages, rent, and inflation pressure.",
+    "content": "In the final primetime debate, party leaders focused heavily on household finances and consumer protection. Analysts said affordability remains the defining issue for undecided voters.",
+    "category": "politics",
+    "imageUrl": "https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?auto=format&fit=crop&w=1200&q=80",
+    "publishedAt": "2026-04-15"
+  },
+  {
+    "id": "2",
+    "slug": "treasury-targets-growth-with-export-package",
+    "title": "Treasury Targets Growth With New Export Package",
+    "excerpt": "A new financing package aims to support UK exporters entering high-growth markets.",
+    "content": "Officials introduced a multi-year export support program that combines lower-cost lending and trade advisory support. The package prioritizes technology, advanced manufacturing, and green products.",
+    "category": "business",
+    "imageUrl": "https://images.unsplash.com/photo-1556155092-490a1ba16284?auto=format&fit=crop&w=1200&q=80",
+    "publishedAt": "2026-04-14"
+  },
+  {
+    "id": "3",
+    "slug": "premier-league-title-race-final-weekend",
+    "title": "Premier League Title Race Heads to Final Weekend",
+    "excerpt": "Two clubs remain level on points after dramatic late goals reshaped the table.",
+    "content": "Managers praised squad composure as title contenders secured narrow victories. Broadcasters expect one of the highest final-weekend audiences in years.",
+    "category": "sports",
+    "imageUrl": "https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?auto=format&fit=crop&w=1200&q=80",
+    "publishedAt": "2026-04-13"
+  },
+  {
+    "id": "4",
+    "slug": "uk-ai-bill-final-review",
+    "title": "UK AI Regulation Bill Enters Final Review",
+    "excerpt": "Lawmakers are reviewing transparency and safety clauses before a final vote.",
+    "content": "The proposal introduces stronger requirements around model disclosures and risk documentation. Industry groups support clarity but requested phased implementation timelines.",
+    "category": "technology",
+    "imageUrl": "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=1200&q=80",
+    "publishedAt": "2026-04-12"
+  },
+  {
+    "id": "5",
+    "slug": "small-business-confidence-q2-rise",
+    "title": "Small Business Confidence Rises in Q2 Survey",
+    "excerpt": "Owners reported stronger demand and improved supply reliability this quarter.",
+    "content": "A national survey showed optimism rising in retail and services, while firms continue to monitor staffing costs and energy pricing.",
+    "category": "business",
+    "imageUrl": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1200&q=80",
+    "publishedAt": "2026-04-10"
+  },
+  {
+    "id": "6",
+    "slug": "city-council-green-transport-plan",
+    "title": "City Council Launches Green Transport Plan",
+    "excerpt": "The plan expands bus lanes, cycling routes, and low-emission corridors.",
+    "content": "Council leaders outlined a five-year roadmap focused on reducing congestion and improving commuter reliability in dense city zones.",
+    "category": "politics",
+    "imageUrl": "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?auto=format&fit=crop&w=1200&q=80",
+    "publishedAt": "2026-04-09"
+  },
+  {
+    "id": "7",
+    "slug": "new-stadium-project-clears-planning",
+    "title": "New Stadium Project Clears Planning Stage",
+    "excerpt": "Construction may begin later this year after final environmental approvals.",
+    "content": "The project includes improved transport links and mixed-use development around the arena district, with completion targeted in three years.",
+    "category": "sports",
+    "imageUrl": "https://images.unsplash.com/photo-1574629810360-7efbbe195018?auto=format&fit=crop&w=1200&q=80",
+    "publishedAt": "2026-04-08"
+  },
+  {
+    "id": "8",
+    "slug": "cyber-taskforce-phishing-alert",
+    "title": "Cybersecurity Taskforce Warns of New Phishing Wave",
+    "excerpt": "Businesses are being urged to tighten email controls and payment verification.",
+    "content": "Security teams reported increased impersonation attempts targeting finance staff. Advisories recommend MFA, strict approval workflows, and endpoint policy audits.",
+    "category": "technology",
+    "imageUrl": "https://images.unsplash.com/photo-1510511459019-5dda7724fd87?auto=format&fit=crop&w=1200&q=80",
+    "publishedAt": "2026-04-07"
+  },
+  {
+    "id": "9",
+    "slug": "open-banking-payments-pilot-expands",
+    "title": "Open Banking Payments Pilot Expands to Major Retailers",
+    "excerpt": "Early participants report reduced checkout friction and lower transaction fees.",
+    "content": "Payment providers expanded a pilot serving high-volume retailers, aiming to improve checkout conversion with direct account-based payment flows.",
+    "category": "business",
+    "imageUrl": "https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=1200&q=80",
+    "publishedAt": "2026-04-06"
+  },
+  {
+    "id": "10",
+    "slug": "committee-reviews-energy-security",
+    "title": "Parliament Committee Reviews Energy Security Plan",
+    "excerpt": "A cross-party panel examined resilience, storage, and grid modernization.",
+    "content": "Ministers said updated investment priorities will be published this quarter, including faster approval pathways for key grid infrastructure projects.",
+    "category": "politics",
+    "imageUrl": "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=1200&q=80",
+    "publishedAt": "2026-04-05"
+  },
+  {
+    "id": "11",
+    "slug": "chip-design-lab-manchester",
+    "title": "Chip Design Lab Opens in Manchester",
+    "excerpt": "The facility is expected to accelerate semiconductor R&D collaboration.",
+    "content": "University and private-sector partners launched the lab to support low-power architecture research and startup prototyping programs.",
+    "category": "technology",
+    "imageUrl": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80",
+    "publishedAt": "2026-04-04"
+  },
+  {
+    "id": "12",
+    "slug": "box-office-weekend-record",
+    "title": "Spring Releases Drive Box Office to Record Weekend",
+    "excerpt": "Cinema operators reported their strongest attendance figures in over a year.",
+    "content": "A cluster of family films and high-profile premieres helped boost ticket sales nationwide, with regional venues seeing notable gains.",
+    "category": "entertainment",
+    "imageUrl": "https://images.unsplash.com/photo-1517604931442-7e0c8ed2963c?auto=format&fit=crop&w=1200&q=80",
+    "publishedAt": "2026-04-03"
+  },
+  {
+    "id": "13",
+    "slug": "women-super-league-attendance-growth",
+    "title": "Women’s Super League Sets New Attendance Milestone",
+    "excerpt": "Matchday figures rose sharply following expanded broadcast and club initiatives.",
+    "content": "League officials credited better kickoff scheduling and youth outreach programs for stronger turnout across multiple stadiums.",
+    "category": "sports",
+    "imageUrl": "https://images.unsplash.com/photo-1543357480-c60d400e2ef9?auto=format&fit=crop&w=1200&q=80",
+    "publishedAt": "2026-04-02"
+  },
+  {
+    "id": "14",
+    "slug": "fintech-hiring-picks-up-london",
+    "title": "Fintech Hiring Picks Up Across London",
+    "excerpt": "Firms are recruiting in compliance, product, and AI operations roles.",
+    "content": "Recruiters said hiring momentum has improved as funding activity stabilizes and firms prioritize scalable payment and fraud-prevention products.",
+    "category": "business",
+    "imageUrl": "https://images.unsplash.com/photo-1559526324-593bc073d938?auto=format&fit=crop&w=1200&q=80",
+    "publishedAt": "2026-04-01"
+  },
+  {
+    "id": "15",
+    "slug": "schools-digital-skills-funding",
+    "title": "Government Expands Digital Skills Funding for Schools",
+    "excerpt": "New grants will support coding labs and teacher upskilling programs.",
+    "content": "Education officials announced additional grant rounds targeting underserved regions, with emphasis on cybersecurity and software development pathways.",
+    "category": "politics",
+    "imageUrl": "https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1200&q=80",
+    "publishedAt": "2026-03-31"
+  },
+  {
+    "id": "16",
+    "slug": "cloud-provider-launches-uk-region",
+    "title": "Cloud Provider Launches New UK Compute Region",
+    "excerpt": "The expansion targets lower latency workloads for finance and media clients.",
+    "content": "The company said the new region includes stronger data residency controls and higher-capacity AI inference infrastructure.",
+    "category": "technology",
+    "imageUrl": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80",
+    "publishedAt": "2026-03-30"
+  },
+  {
+    "id": "17",
+    "slug": "music-awards-nominees-announced",
+    "title": "National Music Awards Announce Nominees",
+    "excerpt": "This year’s shortlist features a mix of established acts and debut artists.",
+    "content": "Organizers highlighted stronger representation from independent labels and regional scenes, with voting to open next week.",
+    "category": "entertainment",
+    "imageUrl": "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?auto=format&fit=crop&w=1200&q=80",
+    "publishedAt": "2026-03-29"
+  },
+  {
+    "id": "18",
+    "slug": "rugby-final-security-travel-plan",
+    "title": "Rugby Final Gets Expanded Security and Travel Plan",
+    "excerpt": "Officials published coordinated matchday transit and crowd management guidance.",
+    "content": "Transport authorities will add late-night services and temporary route controls to manage expected attendance near record levels.",
+    "category": "sports",
+    "imageUrl": "https://images.unsplash.com/photo-1521412644187-c49fa049e84d?auto=format&fit=crop&w=1200&q=80",
+    "publishedAt": "2026-03-28"
+  },
+  {
+    "id": "19",
+    "slug": "media-merger-clears-regulatory-stage",
+    "title": "Media Merger Clears Key Regulatory Stage",
+    "excerpt": "The transaction moves forward after conditional competition approval.",
+    "content": "Regulators approved the deal with commitments around regional newsroom staffing and independent production commissioning.",
+    "category": "business",
+    "imageUrl": "https://images.unsplash.com/photo-1495020689067-958852a7765e?auto=format&fit=crop&w=1200&q=80",
+    "publishedAt": "2026-03-27"
+  },
+  {
+    "id": "20",
+    "slug": "cabinet-briefing-housing-delivery",
+    "title": "Cabinet Briefing Prioritizes Housing Delivery Timeline",
+    "excerpt": "Ministers outlined regional targets and planning reforms for faster build-outs.",
+    "content": "The briefing set near-term milestones for permitting and infrastructure readiness, with quarterly progress reporting expected.",
+    "category": "politics",
+    "imageUrl": "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1200&q=80",
+    "publishedAt": "2026-03-26"
+  },
+  {
+    "id": "21",
+    "slug": "esports-league-signs-national-broadcast",
+    "title": "Esports League Signs National Broadcast Partnership",
+    "excerpt": "The deal is expected to expand audience reach across major UK markets.",
+    "content": "League operators confirmed a multi-season package combining linear broadcasts and streaming distribution, with youth development programming included.",
+    "category": "entertainment",
+    "imageUrl": "https://images.unsplash.com/photo-1542751110-97427bbecf20?auto=format&fit=crop&w=1200&q=80",
+    "publishedAt": "2026-03-25"
+  },
+  {
+    "id": "22",
+    "slug": "startup-grants-climate-innovation-round",
+    "title": "Climate Innovation Fund Opens New Startup Grant Round",
+    "excerpt": "Early-stage teams can apply for pilot funding and commercialization support.",
+    "content": "Program managers said this round prioritizes measurable emissions impact and local supply-chain resilience in deployment planning.",
+    "category": "technology",
+    "imageUrl": "https://images.unsplash.com/photo-1497436072909-60f360e1d4b1?auto=format&fit=crop&w=1200&q=80",
+    "publishedAt": "2026-03-24"
+  },
+  {
+    "id": "23",
+    "slug": "rail-strike-talks-progress-update",
+    "title": "Rail Strike Talks Continue With Progress Reported",
+    "excerpt": "Negotiators signaled movement on scheduling and overtime terms.",
+    "content": "Union and operator representatives described talks as constructive, though several major terms remain unresolved before a final agreement.",
+    "category": "politics",
+    "imageUrl": "https://images.unsplash.com/photo-1474487548417-781cb71495f3?auto=format&fit=crop&w=1200&q=80",
+    "publishedAt": "2026-03-23"
+  }
+]
