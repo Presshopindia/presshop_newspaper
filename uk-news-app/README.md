@@ -13,6 +13,7 @@ Production-ready frontend for the multi-country news platform.
 
 Copy the template:
 
+
 ```bash
 cp .env.example .env
 ```
