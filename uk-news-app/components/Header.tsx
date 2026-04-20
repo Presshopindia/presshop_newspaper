@@ -1,4 +1,5 @@
 import Link from "next/link";
+import TrackedNavLink from "@/components/TrackedNavLink";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -30,13 +31,15 @@ export default function Header() {
 
         <nav className="flex flex-wrap items-center gap-3 text-sm font-medium text-slate-700">
           {navLinks.map((link) => (
-            <Link
+            <TrackedNavLink
               key={link.href}
               href={link.href}
+              label={link.label}
+              location="header"
               className="rounded-md px-3 py-2 hover:bg-slate-100 hover:text-brand-700"
             >
               {link.label}
-            </Link>
+            </TrackedNavLink>
           ))}
         </nav>
       </div>

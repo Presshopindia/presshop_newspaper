@@ -1,6 +1,7 @@
 "use client";
 
 import { MouseEvent, ReactNode } from "react";
+import { trackEvent } from "@/lib/analytics";
 
 interface TrackedAdLinkProps {
   href: string;
@@ -17,6 +18,10 @@ export default function TrackedAdLink({
 }: TrackedAdLinkProps) {
   const handleClick = async (event: MouseEvent<HTMLAnchorElement>) => {
     event.preventDefault();
+    trackEvent("ad_click", {
+      ad_id: adId,
+      destination: href,
+    });
 
     try {
       await fetch(clickEndpoint, {

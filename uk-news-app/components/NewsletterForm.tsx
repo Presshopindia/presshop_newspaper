@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import { trackEvent } from "@/lib/analytics";
 
 interface NewsletterFormProps {
   endpoint: string;
@@ -24,6 +25,9 @@ export default function NewsletterForm({ endpoint, source }: NewsletterFormProps
     }
 
     try {
+      trackEvent("newsletter_submit_attempt", {
+        source,
+      });
       setStatus("loading");
       setMessage("");
 
@@ -47,11 +51,17 @@ export default function NewsletterForm({ endpoint, source }: NewsletterFormProps
       setStatus("success");
       setMessage(json.message || "Subscribed successfully.");
       setEmail("");
+      trackEvent("newsletter_submit_success", {
+        source,
+      });
     } catch (error) {
       setStatus("error");
       setMessage(
         error instanceof Error ? error.message : "Unable to subscribe right now.",
       );
+      trackEvent("newsletter_submit_error", {
+        source,
+      });
     }
   };
 

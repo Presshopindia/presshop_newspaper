@@ -1,4 +1,4 @@
-import Link from "next/link";
+import TrackedNavLink from "@/components/TrackedNavLink";
 
 export default function Footer() {
   return (
@@ -17,45 +17,62 @@ export default function Footer() {
             Quick Links
           </h4>
           <div className="mt-3 space-y-2 text-sm text-slate-600">
-            <Link href="/" className="block hover:text-brand-700">
+            <TrackedNavLink
+              href="/"
+              label="Home"
+              location="footer"
+              className="block hover:text-brand-700"
+            >
               Home
-            </Link>
-            <Link
+            </TrackedNavLink>
+            <TrackedNavLink
               href="/news/category/politics"
+              label="Politics"
+              location="footer"
               className="block hover:text-brand-700"
             >
               Politics
-            </Link>
-            <Link
+            </TrackedNavLink>
+            <TrackedNavLink
               href="/news/category/crime"
+              label="Crime"
+              location="footer"
               className="block hover:text-brand-700"
             >
               Crime
-            </Link>
-            <Link
+            </TrackedNavLink>
+            <TrackedNavLink
               href="/news/category/business"
+              label="Business"
+              location="footer"
               className="block hover:text-brand-700"
             >
               Business
-            </Link>
-            <Link
+            </TrackedNavLink>
+            <TrackedNavLink
               href="/news/category/sport"
+              label="Sport"
+              location="footer"
               className="block hover:text-brand-700"
             >
               Sport
-            </Link>
-            <Link
+            </TrackedNavLink>
+            <TrackedNavLink
               href="/news/category/tech"
+              label="Tech"
+              location="footer"
               className="block hover:text-brand-700"
             >
               Tech
-            </Link>
-            <Link
+            </TrackedNavLink>
+            <TrackedNavLink
               href="/news/category/entertainment"
+              label="Entertainment"
+              location="footer"
               className="block hover:text-brand-700"
             >
               Entertainment
-            </Link>
+            </TrackedNavLink>
           </div>
         </div>
 

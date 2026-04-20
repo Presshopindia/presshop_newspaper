@@ -1,10 +1,11 @@
 import Image from "next/image";
-import Link from "next/link";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import NewsCard from "@/components/NewsCard";
 import Sidebar from "@/components/Sidebar";
 import AdSlot from "@/components/AdSlot";
+import ShareButtons from "@/components/ShareButtons";
+import TrackedNavLink from "@/components/TrackedNavLink";
 import { getNewsByCategory, getNewsBySlug, getTrendingNews } from "@/lib/api";
 import { formatDate, timeAgo } from "@/lib/formatDate";
 
@@ -122,18 +123,26 @@ export default async function NewsDetailPage({ params }: NewsDetailPageProps) {
           <nav className="text-sm text-slate-500">
             <ol className="flex flex-wrap items-center gap-2">
               <li>
-                <Link href="/" className="hover:text-brand-700">
+                <TrackedNavLink
+                  href="/"
+                  label="Home"
+                  location="article_breadcrumb"
+                  eventName="navigation_click"
+                  className="hover:text-brand-700"
+                >
                   Home
-                </Link>
+                </TrackedNavLink>
               </li>
               <li>›</li>
               <li>
-                <Link
+                <TrackedNavLink
                   href={`/news/category/${encodeURIComponent(String(article.category))}`}
+                  label={String(article.category)}
+                  location="article_breadcrumb"
                   className="capitalize hover:text-brand-700"
                 >
                   {String(article.category)}
-                </Link>
+                </TrackedNavLink>
               </li>
               <li>›</li>
               <li className="text-slate-700">{article.title}</li>
@@ -172,33 +181,11 @@ export default async function NewsDetailPage({ params }: NewsDetailPageProps) {
           </figure>
 
           <section className="rounded-xl border border-slate-200 bg-white p-6 shadow-sm md:p-8">
-            <div className="mb-8 flex flex-wrap items-center gap-3">
-              <span className="text-sm font-semibold text-slate-700">Share:</span>
-              <a
-                href={shareLinks.twitter}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="rounded-md bg-sky-500 px-3 py-1.5 text-xs font-semibold text-white hover:bg-sky-600"
-              >
-                Twitter
-              </a>
-              <a
-                href={shareLinks.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="rounded-md bg-blue-700 px-3 py-1.5 text-xs font-semibold text-white hover:bg-blue-800"
-              >
-                LinkedIn
-              </a>
-              <a
-                href={shareLinks.whatsapp}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="rounded-md bg-emerald-600 px-3 py-1.5 text-xs font-semibold text-white hover:bg-emerald-700"
-              >
-                WhatsApp
-              </a>
-            </div>
+            <ShareButtons
+              articleTitle={article.title}
+              articleSlug={article.slug}
+              shareLinks={shareLinks}
+            />
 
             <div className="space-y-6 text-base leading-8 text-slate-700">
               {articleParagraphs.map((paragraph, index) => (
