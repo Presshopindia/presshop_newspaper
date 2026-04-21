@@ -80,10 +80,10 @@ export default async function HomePage() {
 
   return (
     <div className="space-y-10">
-      <div className="rounded-lg border border-slate-200 bg-white px-4 py-2 text-xs text-slate-600">
+      {/* <div className="rounded-lg border border-slate-200 bg-white px-4 py-2 text-xs text-slate-600">
         Page {newsResponse.page} of {newsResponse.totalPages} · {newsResponse.total}{" "}
         total articles
-      </div>
+      </div> */}
 
       <BreakingTicker
         headlines={trending.map((item) => item.title).slice(0, 5)}

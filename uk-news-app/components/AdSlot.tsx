@@ -5,9 +5,10 @@ import TrackedAdLink from "@/components/TrackedAdLink";
 interface AdSlotProps {
   size: "300x250" | "728x90";
   placement?: string;
+  className?: string;
 }
 
-export default async function AdSlot({ size, placement }: AdSlotProps) {
+export default async function AdSlot({ size, placement, className }: AdSlotProps) {
   const ads = await getAds();
   const isLeaderboard = size === "728x90";
   const adType = isLeaderboard ? "banner" : "square";
@@ -32,7 +33,7 @@ export default async function AdSlot({ size, placement }: AdSlotProps) {
       adId={selectedAd.id}
       clickEndpoint={clickEndpoint}
     >
-      <section className="block overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm transition duration-200 hover:-translate-y-0.5 hover:shadow-lg">
+      <section className={`block overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm transition duration-200 hover:-translate-y-0.5 hover:shadow-lg ${className}`}>
         <div
           className={`relative w-full ${
             isLeaderboard ? "h-[90px] md:h-[120px]" : "h-[250px]"

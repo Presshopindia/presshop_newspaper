@@ -1,5 +1,8 @@
 import Link from "next/link";
+import Image from "next/image";
 import TrackedNavLink from "@/components/TrackedNavLink";
+
+import Logo from "@/public/images/logo.png";
 
 const navLinks = [
   { href: "/", label: "Home" },
@@ -24,9 +27,15 @@ export default function Header() {
       <div className="container-padded flex flex-col gap-4 py-5 md:flex-row md:items-center md:justify-between">
         <Link
           href="/"
-          className="text-2xl font-extrabold tracking-tight text-brand-900"
         >
-          UK News
+          <Image
+            src={Logo}
+            alt="UK News logo"
+            width={100}
+            height={100}
+            className="object-contain"
+            priority
+          />
         </Link>
 
         <nav className="flex flex-wrap items-center gap-3 text-sm font-medium text-slate-700">
@@ -37,6 +46,7 @@ export default function Header() {
               label={link.label}
               location="header"
               className="rounded-md px-3 py-2 hover:bg-slate-100 hover:text-brand-700"
+              activeClassName="text-brand-700"
             >
               {link.label}
             </TrackedNavLink>

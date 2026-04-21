@@ -21,7 +21,7 @@ export default function Sidebar({
 
   return (
     <aside className="space-y-6">
-      <section className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
+      <section className="mb-6 rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
         <h2 className="text-lg font-semibold text-slate-900">Trending Now</h2>
         <ul className="mt-4 space-y-4">
           {trendingItems.map((item, index) => (
@@ -51,7 +51,7 @@ export default function Sidebar({
         </ul>
       </section>
 
-      <AdSlot size="300x250" placement="sidebar_square" />
+      <AdSlot size="300x250" placement="sidebar_square" className="mb-6" />
 
       <section className="rounded-xl border border-slate-200 bg-white p-5 shadow-sm">
         <h2 className="text-lg font-semibold text-slate-900">Newsletter</h2>
