@@ -2,6 +2,8 @@ const slugify = require("slugify");
 const News = require("../models/News");
 const { rewriteArticle } = require("./aiRewrite.service");
 
+const NEWS_RETENTION_HOURS = Math.max(Number(process.env.NEWS_RETENTION_HOURS) || 48, 1);
+
 function normalizeCategory(category = "") {
   const value = String(category).toLowerCase().trim();
 
@@ -63,6 +65,69 @@ function buildBaseSlug(title) {
   });
 }
 
+function normalizeTitleForCompare(title = "") {
+  return String(title)
+    .toLowerCase()
+    .trim()
+    .replace(/\s+/g, " ")
+    .replace(/[^\p{L}\p{N}\s]/gu, "");
+}
+
+function normalizeSourceUrl(url = "") {
+  const value = String(url).trim();
+  if (!value) {
+    return "";
+  }
+
+  try {
+    const parsed = new URL(value);
+    parsed.hash = "";
+    parsed.search = "";
+    parsed.pathname = parsed.pathname.replace(/\/+$/, "");
+    return parsed.toString();
+  } catch {
+    return value;
+  }
+}
+
+function escapeRegex(input = "") {
+  return String(input).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+function getRetentionCutoffDate() {
+  return new Date(Date.now() - NEWS_RETENTION_HOURS * 60 * 60 * 1000);
+}
+
+async function isDuplicateNewsItem(item, country) {
+  const rawTitle = String(item?.title || "").trim();
+  const source = String(item?.source || "GNews").trim();
+  const normalizedSourceUrl = normalizeSourceUrl(item?.sourceUrl || "");
+
+  if (normalizedSourceUrl) {
+    const urlDuplicate = await News.findOne({
+      country,
+      sourceUrl: normalizedSourceUrl,
+    }).lean();
+
+    if (urlDuplicate) {
+      return true;
+    }
+  }
+
+  if (!rawTitle) {
+    return false;
+  }
+
+  const titleRegex = new RegExp(`^${escapeRegex(rawTitle)}$`, "i");
+  const titleDuplicate = await News.findOne({
+    country,
+    source,
+    title: titleRegex,
+  }).lean();
+
+  return Boolean(titleDuplicate);
+}
+
 async function createUniqueSlug(title) {
   const baseSlug = buildBaseSlug(title);
   let candidate = baseSlug;
@@ -95,48 +160,74 @@ async function saveNews(newsItems = [], country = "gb") {
       continue;
     }
 
-    const generatedSlug = buildBaseSlug(item.title);
-    const duplicate = await News.findOne({
-      country: normalizedCountry,
-      $or: [
-        { title: item.title },
-        item.sourceUrl ? { sourceUrl: item.sourceUrl } : { slug: generatedSlug },
-      ],
-    }).lean();
+    const normalizedInput = {
+      ...item,
+      title: normalizeTitleForCompare(item.title) ? String(item.title).trim() : "",
+      source: String(item.source || "GNews").trim(),
+      sourceUrl: normalizeSourceUrl(item.sourceUrl || ""),
+    };
 
-    if (duplicate) {
+    if (!normalizedInput.title) {
+      skippedCount += 1;
+      continue;
+    }
+
+    if (await isDuplicateNewsItem(normalizedInput, normalizedCountry)) {
       skippedCount += 1;
       continue;
     }
 
     const rewritten = await rewriteArticle({
-      title: item.title,
-      description: item.description || "",
-      content: item.content || "",
-      category: normalizeCategory(item.category),
+      title: normalizedInput.title,
+      description: normalizedInput.description || "",
+      content: normalizedInput.content || "",
+      category: normalizeCategory(normalizedInput.category),
     });
 
-    const finalTitle = rewritten.title || item.title;
-    const finalDescription = rewritten.summary || item.description || "";
-    const finalContent = rewritten.content || item.content || item.description || "";
+    const finalTitle = rewritten.title || normalizedInput.title;
+    const finalDescription = rewritten.summary || normalizedInput.description || "";
+    const finalContent =
+      rewritten.content ||
+      normalizedInput.content ||
+      normalizedInput.description ||
+      "";
+
+    if (
+      finalTitle &&
+      normalizeTitleForCompare(finalTitle) !==
+        normalizeTitleForCompare(normalizedInput.title) &&
+      (await isDuplicateNewsItem({ ...normalizedInput, title: finalTitle }, normalizedCountry))
+    ) {
+      skippedCount += 1;
+      continue;
+    }
 
     const uniqueSlug = await createUniqueSlug(finalTitle);
 
-    const created = await News.create({
-      title: finalTitle,
-      slug: uniqueSlug,
-      description: finalDescription,
-      content: finalContent,
-      image: item.image || "",
-      category: normalizeCategory(item.category),
-      country: normalizeCountry(item.country || normalizedCountry),
-      language: item.language || "en",
-      source: item.source || "GNews",
-      sourceUrl: item.sourceUrl || "",
-      tags: Array.isArray(item.tags) ? item.tags : [],
-      isFeatured: Boolean(item.isFeatured),
-      publishedAt: item.publishedAt || new Date(),
-    });
+    let created;
+    try {
+      created = await News.create({
+        title: finalTitle,
+        slug: uniqueSlug,
+        description: finalDescription,
+        content: finalContent,
+        image: normalizedInput.image || "",
+        category: normalizeCategory(normalizedInput.category),
+        country: normalizeCountry(normalizedInput.country || normalizedCountry),
+        language: normalizedInput.language || "en",
+        source: normalizedInput.source,
+        sourceUrl: normalizedInput.sourceUrl,
+        tags: Array.isArray(normalizedInput.tags) ? normalizedInput.tags : [],
+        isFeatured: Boolean(normalizedInput.isFeatured),
+        publishedAt: normalizedInput.publishedAt || new Date(),
+      });
+    } catch (error) {
+      if (error?.code === 11000) {
+        skippedCount += 1;
+        continue;
+      }
+      throw error;
+    }
 
     inserted.push(created);
   }
@@ -149,17 +240,23 @@ async function saveNews(newsItems = [], country = "gb") {
 }
 
 async function getAllNews() {
-  return News.find().sort({ publishedAt: -1 }).lean();
+  return News.find({ publishedAt: { $gte: getRetentionCutoffDate() } })
+    .sort({ publishedAt: -1 })
+    .lean();
 }
 
 async function getNewsBySlug(slug) {
-  return News.findOne({ slug }).lean();
+  return News.findOne({
+    slug,
+    publishedAt: { $gte: getRetentionCutoffDate() },
+  }).lean();
 }
 
 async function getNewsByCategory(category, country = "gb") {
   return News.find({
     ...buildCountryFilter(country),
     category: buildCategoryQuery(category),
+    publishedAt: { $gte: getRetentionCutoffDate() },
   })
     .sort({ publishedAt: -1 })
     .lean();
@@ -175,6 +272,7 @@ async function getAllNewsWithFilters(options = {}) {
   const country = normalizeCountry(options.country || "gb");
 
   const query = buildCountryFilter(country);
+  query.publishedAt = { $gte: getRetentionCutoffDate() };
 
   if (category) {
     query.category = buildCategoryQuery(category);

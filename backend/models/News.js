@@ -77,6 +77,7 @@ newsSchema.index({ slug: 1 }, { unique: true });
 newsSchema.index({ title: 1 });
 newsSchema.index({ category: 1 });
 newsSchema.index({ publishedAt: -1 });
+newsSchema.index({ publishedAt: 1 }, { expireAfterSeconds: 2 * 24 * 60 * 60 });
 newsSchema.index({ country: 1, category: 1, publishedAt: -1 });
 
 module.exports = mongoose.model("News", newsSchema);
